@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ImageBackground, ToastAndroid } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ImageBackground, ToastAndroid, Keyboard } from 'react-native';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 const Weather = () => {
@@ -26,6 +26,7 @@ const Weather = () => {
         }
         else {
             searchWeather(input)
+            Keyboard.dismiss()
             setInput('')
         }
     }
@@ -39,6 +40,7 @@ const Weather = () => {
                     onChangeText={setInput}
                     value={input}
                     placeholder='Enter City Name'
+
                 />
             </View>
             <TouchableOpacity onPress={handleSearch} style={styles.button}>
